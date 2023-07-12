@@ -57,6 +57,15 @@ class Lexer():
 
 
         '''
+            Delimitters
+        '''
+        self.lexer.add('OPEN_PAREN', r'\(')
+        self.lexer.add('CLOSE_PAREN', r'\)')
+        self.lexer.add('OPEN_BRACE', r'\{')
+        self.lexer.add('CLOSE_BRACE', r'\}')
+        self.lexer.add('SEMI_COLON', r'\;')
+
+        '''
             Variables
         '''
         self.lexer.add('VARIABLE', r'\b[a-zA-Z_]\w*\b')
