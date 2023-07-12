@@ -13,17 +13,17 @@ class Lexer():
             -Things like if, for, else, while
             -Note that for all terms and operators we have pinglish and farsi script parsed equivalently
         '''
-        self.lexer.add('AGAR', r'\bagar\b')
-        self.lexer.add('AGAR', r'\bاگر\b')
+        self.lexer.add('AGAR_LA', r'\bagar\b')
+        self.lexer.add('AGAR_FA', r'\bاگر\b')
 
-        self.lexer.add('DAR_GHEYRE_IN_SOORAT', r'\bdar gheyre in soorat\b')
-        self.lexer.add('DAR_GHEYRE_IN_SOORAT', r'\bدر غیر این صورت\b')
+        self.lexer.add('DAR_GHEYRE_IN_SOORAT_LA', r'\bdar gheyre in soorat\b')
+        self.lexer.add('DAR_GHEYRE_IN_SOORAT_FA', r'\bدر غیر این صورت\b')
 
-        self.lexer.add('BARAYE', r'\bbaraye\b')
-        self.lexer.add('BARAYE', r'\bبرای\b')
+        self.lexer.add('BARAYE_LA', r'\bbaraye\b')
+        self.lexer.add('BARAYE_FA', r'\bبرای\b')
 
-        self.lexer.add('TA', r'\bta\b')
-        self.lexer.add('TA', r'\bتا\b')
+        self.lexer.add('TA_LA', r'\bta\b')
+        self.lexer.add('TA_FA', r'\bتا\b')
 
 
         '''

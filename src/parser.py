@@ -56,6 +56,9 @@ class Parser:
             elif operator == 'DIVIDE' or operator == 'TAGHSIM_BAR_LA' or operator == 'TAGHSIM_BAR_FA':
                 return binaryops.Divide(larg, rarg)
 
+        @self.pg.production('statement : AGAR expression DAR_GHEYRE_IN_SOORAT statement')
+        def statement_conditional(p):
+            pass
 
         @self.pg.error
         def handle_err(token):
