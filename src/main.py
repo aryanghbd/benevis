@@ -1,9 +1,14 @@
 from lexer import Lexer
+from parser import Parser
 
-text_input = "5 ezafe 10"
+text_input = "5 menhaye 10"
 
 lexer = Lexer().get_lexer()
-toks = lexer.lex(text_input)
+parser = Parser(lexer)
+parser.parse()
+pg = parser.get_parser()
 
-for tok in toks:
-    print(tok)
+tokens = lexer.lex(text_input)
+res = pg.parse(tokens)
+
+print(res.evaluate())

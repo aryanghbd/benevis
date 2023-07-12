@@ -31,28 +31,28 @@ class Lexer():
             -Things like +, -, *, /
             -Note that we can use words or the actual symbols for these, so each one comes as a pair (treated the same in AST)
         '''
-        self.lexer.add('EZAFE', r'\bezafe\b')
-        self.lexer.add('EZAFE', r'\bافزودن\b')
+        self.lexer.add('BE_ALAVEYE_LA', r'\bbe alaveye\b')
+        self.lexer.add('BE_ALAVEYE_FA', r'\bبه علاوه\b')
         self.lexer.add('PLUS', r'\+')
 
-        self.lexer.add('MENHAYE', r'\bmenhaye\b')
-        self.lexer.add('MENHAYE', r'\bکم کردن\b')
+        self.lexer.add('MENHAYE_LA', r'\bmenhaye\b')
+        self.lexer.add('MENHAYE_FA', r'\bمنهای\b')
         self.lexer.add('MINUS', r'\-')
 
-        self.lexer.add('ZARBDARE', r'\bzarbdare\b')
-        self.lexer.add('ZARBDARE', r'\bضرب کردن\b')
+        self.lexer.add('ZARBDARE_LA', r'\bzarbdare\b')
+        self.lexer.add('ZARBDARE_FA', r'\b ضرب در\b')
         self.lexer.add('MULTIPLY', r'\*')
 
-        self.lexer.add('TAGHSIM_BAR', r'\btaghsim bar\b')
-        self.lexer.add('TAGHSIM_BAR', r'\bتقسیم بر\b')
+        self.lexer.add('TAGHSIM_BAR_LA', r'\btaghsim bar\b')
+        self.lexer.add('TAGHSIM_BAR_FA', r'\bتقسیم بر\b')
         self.lexer.add('DIVIDE', r'\\')
 
-        self.lexer.add('MOSAVIYE', r'\bmosaviye\b')
-        self.lexer.add('MOSAVIYE', r'\bمساوی است با\b')
+        self.lexer.add('MOSAVIYE_LA', r'\bmosaviye\b')
+        self.lexer.add('MOSAVIYE_FA', r'\bمساوی\b')
         self.lexer.add('EQUAL', r'\=')
 
-        self.lexer.add('MOSAVI_NIST_BA', r'\bmosavi nist ba\b')
-        self.lexer.add('MOSAVI_NIST_BA', r'\bمساوی نیست با\b')
+        self.lexer.add('MOSAVI_NIST_BA_LA', r'\bmosavi nist ba\b')
+        self.lexer.add('MOSAVI_NIST_BA_FA', r'\bمساوی نیست با\b')
         self.lexer.add('NEQ', r'\!=')
 
 
@@ -63,7 +63,6 @@ class Lexer():
         self.lexer.add('CLOSE_PAREN', r'\)')
         self.lexer.add('OPEN_BRACE', r'\{')
         self.lexer.add('CLOSE_BRACE', r'\}')
-        self.lexer.add('SEMI_COLON', r'\;')
 
         '''
             Variables
@@ -71,7 +70,7 @@ class Lexer():
         self.lexer.add('VARIABLE', r'\b[a-zA-Z_]\w*\b')
 
         '''
-            Integer literals
+            Integer literals - Note we need to map INTEGER_FA to others
         '''
         self.lexer.add('INTEGER', r'\b\d+\b')
 
