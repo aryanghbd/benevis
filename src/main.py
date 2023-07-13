@@ -1,14 +1,14 @@
-from lexer import Lexer
-from parser import Parser
+import interpreter
 
-text_input = "5 menhaye 10"
+def main():
+    source_code = '''
+    x = 45
+    y = x menhaye 4
+    
+    chiye(y)
+    '''
 
-lexer = Lexer().get_lexer()
-parser = Parser(lexer)
-parser.parse()
-pg = parser.get_parser()
+    interpreter.interpret(source_code)
 
-tokens = lexer.lex(text_input)
-res = pg.parse(tokens)
-
-print(res.evaluate())
+if __name__ == "__main__":
+    main()

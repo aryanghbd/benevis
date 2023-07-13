@@ -1,15 +1,21 @@
 from rply import ParserGenerator
-from primitives import binaryops, integer
+from primitives import binaryops, integer, conditionals, variable, misc, program
 from unidecode import unidecode
 class Parser:
     def __init__(self, lexer, ):
         self.lexer = lexer
 
         self.pg = ParserGenerator(
-            ['INTEGER', 'VARIABLE', 'AGAR', 'DAR_GHEYRE_IN_SOORAT', 'BARAYE', 'TA', 'BE_ALAVEYE_LA', 'BE_ALAVEYE_FA', 'PLUS', 'MENHAYE_LA', 'MENHAYE_FA', 'MINUS', 'ZARBDARE_LA', 'ZARBDARE_FA', 'MULTIPLY', 'TAGHSIM_BAR_LA', 'TAGHSIM_BAR_FA', 'DIVIDE', 'MOSAVIYE_LA', 'MOSAVIYE_FA', 'EQUAL', 'MOSAVI_NIST_BA', 'NEQ', 'OPEN_PAREN', 'CLOSE_PAREN', 'OPEN_BRACE', 'CLOSE_BRACE']
+            ['CHIYE', 'ASSIGNMENT', 'INTEGER', 'VARIABLE', 'AGAR', 'DAR_GHEYRE_IN_SOORAT', 'BARAYE', 'TA', 'BE_ALAVEYE_LA', 'BE_ALAVEYE_FA', 'PLUS', 'MENHAYE_LA', 'MENHAYE_FA', 'MINUS', 'ZARBDARE_LA', 'ZARBDARE_FA', 'MULTIPLY', 'TAGHSIM_BAR_LA', 'TAGHSIM_BAR_FA', 'DIVIDE', 'MOSAVIYE_LA', 'MOSAVIYE_FA', 'EQUAL', 'MOSAVI_NIST_BA', 'NEQ', 'OPEN_PAREN', 'CLOSE_PAREN', 'OPEN_BRACE', 'CLOSE_BRACE']
         )
 
     def parse(self):
+
+        @self.pg.production('program : statement')
+        @self.pg.production('program : statement program')
+        def prog(p):
+            return program.Program([p[0]] + p[1:])
+
         @self.pg.production('expression : INTEGER')
         def expr_integer(p):
             return integer.Integer(int(p[0].getstr()))
@@ -56,9 +62,29 @@ class Parser:
             elif operator == 'DIVIDE' or operator == 'TAGHSIM_BAR_LA' or operator == 'TAGHSIM_BAR_FA':
                 return binaryops.Divide(larg, rarg)
 
-        @self.pg.production('statement : AGAR expression DAR_GHEYRE_IN_SOORAT statement')
+        @self.pg.production('statement : AGAR expression statement DAR_GHEYRE_IN_SOORAT statement')
         def statement_conditional(p):
-            pass
+            return conditionals.Conditional(p[1], p[2], p[4])
+
+        @self.pg.production('statement : AGAR expression statement')
+        def statement_basicconditional(p):
+            return conditionals.Conditional(p[1], p[2], None)
+
+        @self.pg.production('statement : TA expression statement')
+        def statement_while(p):
+            return conditionals.While(p[1], p[2])
+
+        @self.pg.production('statement : VARIABLE ASSIGNMENT expression')
+        def statement_assignment(p):
+            return variable.Assignment(p[0], p[2])
+
+        @self.pg.production('expression : VARIABLE')
+        def expression_variable(p):
+            return variable.Variable(p[0].getstr())
+
+        @self.pg.production('statement : CHIYE OPEN_PAREN expression CLOSE_PAREN')
+        def statement_print(p):
+            return misc.Print(p[2])
 
         @self.pg.error
         def handle_err(token):

@@ -49,12 +49,14 @@ class Lexer():
 
         self.lexer.add('MOSAVIYE_LA', r'\bmosaviye\b')
         self.lexer.add('MOSAVIYE_FA', r'\bمساوی\b')
-        self.lexer.add('EQUAL', r'\=')
+        self.lexer.add('EQUAL', r'\==')
 
         self.lexer.add('MOSAVI_NIST_BA_LA', r'\bmosavi nist ba\b')
         self.lexer.add('MOSAVI_NIST_BA_FA', r'\bمساوی نیست با\b')
         self.lexer.add('NEQ', r'\!=')
 
+        self.lexer.add('ASSIGNMENT', r'=')
+        self.lexer.add('CHIYE', r'\bchiye\b')
 
         '''
             Delimitters

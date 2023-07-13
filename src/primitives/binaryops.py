@@ -4,19 +4,19 @@ class BinaryOperation:
         self.right = right
 
 class Add(BinaryOperation):
-    def evaluate(self):
+    def evaluate(self, environment=None):
         return self.left.evaluate() + self.right.evaluate()
 
 class Subtract(BinaryOperation):
-    def evaluate(self):
+    def evaluate(self, environment=None):
         return self.left.evaluate() - self.right.evaluate()
 
 class Multiply(BinaryOperation):
-    def evaluate(self):
+    def evaluate(self, environment=None):
         return self.left.evaluate() * self.right.evaluate()
 
 class Divide(BinaryOperation):
-    def evaluate(self):
+    def evaluate(self, environment=None):
         divisor = self.right.evaluate()
         if divisor == 0:
             raise ValueError("نمی‌توان بر صفر تقسیم کرد")
