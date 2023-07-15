@@ -1,5 +1,5 @@
-# Benevis
-Benevis - A Persian programming language.
+# Benevis!
+Benevis! - A Persian programming language.
 
 # About
 
