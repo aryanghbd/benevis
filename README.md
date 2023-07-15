@@ -36,6 +36,8 @@ After installation, you can start Benevis with the following command:
 benevis [filename]
 ```
 
+Note that benevis files have the extension '.bnvs'.
+
 If you require any help setting up, call
 ```bash
 benevis -h
