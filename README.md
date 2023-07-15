@@ -46,3 +46,7 @@ benevis -h
 ### Contributions
 
 I am actively seeking to collaborate with fellow developers or linguists of the Persian language to really provide more expansive ranges of syntax for the language! If you're interested, contact me on LinkedIn or fork this project and drop me a message, let's try and put Farsi back on top!
+
+### Finally, a motivation
+
+Why did I make this project? I felt that the barrier to entry for a lot of young programmers can often scale with their level of spoken or written English, many among our youth have the arithmetic and logical capabilities to write code at an early age but are often hampered by a lack of intuition of said concepts in the English language, as often they are not taught the language at all or until far later in life. This leads to an increased difficulty of having to translate thoughts into English, and then subsequently into code. I made benevis to support the Persian-speaking youth, by providing a simple but expanding means of expressing code in a way that makes sense in their own language.
