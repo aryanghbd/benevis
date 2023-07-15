@@ -1,5 +1,5 @@
 from src.primitives import integer, variable
-from src.lexer import lexer
+from src.bnlexer import lexer
 import rply
 
 env = variable.Scope()

@@ -1,5 +1,5 @@
-from lexer import Lexer
-from parser import Parser
+from bnlexer import Lexer
+from bnparser import Parser
 from primitives import variable
 def interpret(source_code):
     # Get a lexer
@@ -14,11 +14,9 @@ def interpret(source_code):
     tokens = lexer.lex(source_code)
     scope = variable.Scope()
 
-    # Parse the token stream as a program
     try:
         program = pg.parse(iter(tokens))
 
-        # Evaluate the program
         program.evaluate(scope)
     except Exception as e:
         print("An error occurred while interpreting the program:")
