@@ -1,9 +1,5 @@
 import argparse
-from bnlexer import Lexer
-from bnparser import Parser
-from primitives import variable
 import bninterpreter
-from setuptools import setup
 
 
 def main():
